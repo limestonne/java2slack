@@ -1,0 +1,24 @@
+<configuration>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="main" class="ch.qos.logback.core.FileAppender">
+    <file>logs/main.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="async-main" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="main"/>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="console"/>
+    <appender-ref ref="async-main"/>
+  </root>
+
+</configuration>
