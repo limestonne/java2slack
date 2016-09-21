@@ -6,19 +6,12 @@
     </encoder>
   </appender>
 
-  <appender name="main" class="ch.qos.logback.core.FileAppender">
-    <file>logs/main.log</file>
-    <encoder>
-      <pattern>%d{HH:mm:ss.SSS} %-5level %msg%n</pattern>
-    </encoder>
-  </appender>
-  <appender name="async-main" class="ch.qos.logback.classic.AsyncAppender">
-    <appender-ref ref="main"/>
-  </appender>
+  <logger name="org.asynchttpclient" additivity="false" level="DEBUG">
+    <appender-ref ref="console"/>
+  </logger>
 
   <root level="info">
     <appender-ref ref="console"/>
-    <appender-ref ref="async-main"/>
   </root>
 
 </configuration>
